@@ -100,4 +100,19 @@ print(s)
 for name,val in zip(headers,values):
     print(name, '=', val)
 
+##FOR THIS PROBLEM, YOU NEED TO PERFORM THE SAME OPERATION ON MANY OBJECTS, BUT THEY ARE IN DIFFERENT CONTAINERS AND YOU DON'T WANT NESTED LOOPS
+##   USE ITERTOOLS.CHAIN()
+
+from itertools import chain
+a = [1,2,3,4]
+b= ['x', 'y', 'z']
+
+for x in chain(a,b):
+    print(x)
+
+##a COMMON USAFE IS WHERE YOU NEED TO PERFOMR OPERATIONS ON TWO GROUPS OF ITEMS AT THE SAME TIME AND ONE SET IS ACTIVE AND THE OTHER IS NOT
+active=set()
+inactive=set()
+for item in chain (active, inactive):
+    #proces them
 
