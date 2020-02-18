@@ -51,4 +51,53 @@ for p in permutations(items,3):
 items= [1,2,3,4,5,'a','b','c']
 for count, p in enumerate(permutations(items)):
     print(count, p)
+#for a pretty printed verison
+    print("this"{} "is permutation #" %p, count )
+
+##
+##TO ITERATE OVER A SEQUENCE AND KEEP TRACK OF WHICH ELEMENT IS BEING PROCESSES
+
+items= [1,2,3,4,5,6,7,'a','b','c']
+for idx, val in enumerate(items,1):
+    print(idx, val)
+
+## BASICALLY, THE MORAL HERE IS THAT IN ALMOST ALL CIRCUMSTANCES, WHEN YOU WANT TO USE A COUNTER, IT IS OFTEN MORE ELEGANT TO USE ENUMERATE
+
+# USE IT HERE TO TRACK LINE NUMBERS FOR FILE
+def parse_data(filename):
+    with open(filename, 'rt') as f:
+        for lineno, line in enumerate(f,1):
+            fields = line.split()
+            try:
+                count = int(fields[1])
+            except ValueError as e:
+                print('Line{}: Parse error: {}'format(lineno, e))
+
+parse_data(file.txt)
+
+##ITERATING OVER ITEMS CONTAINED IN MORE THAN ONE SEQUENCE AT A TIME
+## NOTE::  IF THE TOTAL NUMBER OF ITEMS IN THELISTS ARE NOT EQUAL, THE SEQUENCE WILL ONLY FULFIL UP TO THE LOWER NUMER
+
+xpts=[1,2,3,4,5,7]
+ypts=[34,35,78,99,66,88]
+for x,y in zip(xpts,ypts):
+    print(x,y)
+
+# YOU CAN OUTPUT IT AS A TUPLE AS FOLLOWS
+xpts=[1,2,3,4,5,7]
+ypts=[34,35,78,99,66,88]
+for x in zip(xpts,ypts):
+    print(x)
+
+##  NOTE:  ZIP IS COMMONLY USED WHENEVER YOU NEED TO PAIR DATA TOGETHER THUS
+## IT COULD BE USED TO CREATE DICTIONARY ZIPPING TOGETHER COLUMN HEADER AND VALUES
+headers=['NAME','SHARES','PRICE']
+values=['ACME',100,490]
+#A DICTIONARY
+s=dict(zip(headers, values))
+print(s)
+
+for name,val in zip(headers,values):
+    print(name, '=', val)
+
 
