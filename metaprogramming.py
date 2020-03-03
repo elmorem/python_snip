@@ -20,3 +20,15 @@ def countdown(n):
     while n>0:
         n-=1
 countdown(10000)   
+
+##ISSUE: you have a decorator, but when you apply it, you lose important metadata
+#solution:  always use the @wraps decorator
+
+# using the same above details (@wraps) returns
+>>>countdown.__name__
+'countdown'
+>>>countdown.__annotations__
+{ 'n':<class 'int'>}
+
+#to gain access to the original function, assuming that @wraps was used, you simply unwrap it by acessing the __wrapped__ atttribute
+
